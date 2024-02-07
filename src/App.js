@@ -4,13 +4,13 @@ import AddTodo from "./components/addTodo";
 import TodoList from "./components/todoList";
 
 function App() {
-  const [todos, setTodos] = useState({})
+  const [todos, setTodos] = useState([])
 
   return (
     <>
     <header>
       <TitleBanner />
-      <AddTodo />
+      <AddTodo todos={todos} setTodos={setTodos}/>
     </header>
     <main>
       <TodoList todos={todos}/>

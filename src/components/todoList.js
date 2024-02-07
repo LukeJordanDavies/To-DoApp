@@ -1,10 +1,13 @@
 import React from 'react'
+import TodoBox from './todoBox'
 
 const TodoList = ({ todos }) => {
   return (
-    <ul className='todo-body'>
-      {!todos.todoTitle ? 'Your todo list is empty' : <li>{todos.todoTitle}</li>}
-    </ul>
+    <>
+      {todos.map(({ todoTitle }, index) => (
+        <TodoBox key={index} todoTitle={todoTitle}/>
+      ))}
+    </>
   )
 }
 
