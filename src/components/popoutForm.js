@@ -17,20 +17,20 @@ const PopoutForm = ({ onClose, todos, setTodos }) => {
     
 
   return (
-    <div className='input-section'>
+      <div className='form-section'>
         <form onSubmit={handleSubmit}>
             <input 
               type='text'
               name='todoTitle'
               value={todos.todoTitle}
               placeholder='Add Todo'
+              className='input-text-box'
               onChange={(e) => setTitle(e.target.value)}
             />
-            <input type="submit" value="Submit"/>
+            <input type="submit" value="Add" className='submit-todo-btn'/>
         </form>
-    </div>
+      </div>
   )
 }
 
 export default PopoutForm
-
