@@ -23,7 +23,7 @@ const PopoutForm = ({ onClose, todos, setTodos }) => {
               type='text'
               name='todoTitle'
               value={todos.todoTitle}
-              placeholder='Add Todo'
+              placeholder=' Enter todo'
               className='input-text-box'
               onChange={(e) => setTitle(e.target.value)}
             />

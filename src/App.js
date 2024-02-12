@@ -6,21 +6,28 @@ import TodoList from "./components/todoList";
 function App() {
   const [todos, setTodos] = useState([
     {
-      todoTitle: '',
-      completed: false
+      todoTitle: ''
     }
-  ])
+  ]);
+  const [isCompleted, setIsCompleted] = useState(false);
 
   return (
     <>
     <header>
       <TitleBanner />
-      <AddTodo todos={todos} setTodos={setTodos}/>
+      <AddTodo 
+        todos={todos} 
+        setTodos={setTodos}
+      />
       <hr/>
     </header>
 
     <main>
-      <TodoList todos={todos}/>
+      <TodoList 
+        todos={todos}   
+        isCompleted={isCompleted} 
+        setIsCompleted={setIsCompleted}
+      />
     </main>
     </>
   );

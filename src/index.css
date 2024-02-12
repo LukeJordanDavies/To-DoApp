@@ -40,17 +40,20 @@ hr {
   background-color: lightgray;
 }
 
-.checkbox-container {
+.checkbox {
+  font-size: 25px;
+  color: black;
+}
+
+.checkbox-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   height: 50px;
   width: 50px;
-}
-
-.checkbox {
-  font-size: 25px;
-  color: black;
 }
 
 .delete-button-container {
