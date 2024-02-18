@@ -2,7 +2,7 @@ import React from 'react'
 
 const TitleBanner = () => {
   return (
-    <h1 className='title'>Title</h1>
+    <h1 className='title'>My Todos</h1>
   )
 }
 

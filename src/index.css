@@ -11,6 +11,16 @@
   font-size: 3rem;
 }
 
+.searchbar-container {
+  display: inline-flex;
+  width: 100%;
+  justify-content: end;
+}
+
+/* .searchbar {
+  
+} */
+
 .add-todo-btn {
   display: inline-block;
   width: 100%;
@@ -56,7 +66,10 @@ hr {
   width: 50px;
 }
 
-.delete-button-container {
+.delete-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,7 +77,7 @@ hr {
   width: 50px;
 }
 
-.delete-button {
+.delete-icon {
   font-size: 25px;
   color: black;
 }
