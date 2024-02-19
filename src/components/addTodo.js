@@ -4,18 +4,14 @@ import PopoutForm from './popoutForm';
 const AddTodo = ({ todos, setTodos }) => {
   const [popoutVisible, setPopoutVisible] = useState(false);
 
-  const openPopout = () => {
-    setPopoutVisible(true);
-  };
-
-  const closePopout = () => {
-    setPopoutVisible(false);
+  const togglePopout = () => {
+    setPopoutVisible(!popoutVisible)
   };
 
   return (
     <>
-      <button className='add-todo-btn' onClick={openPopout}>Add Todo</button>
-      {popoutVisible && <PopoutForm onClose={closePopout} todos={todos} setTodos={setTodos}/>}
+      <button className='add-todo-btn' onClick={togglePopout}>Add Todo</button>
+      {popoutVisible && <PopoutForm onClose={togglePopout} todos={todos} setTodos={setTodos}/>}
     </>
   )
 }

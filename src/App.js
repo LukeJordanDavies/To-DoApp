@@ -3,6 +3,7 @@ import TitleBanner from "./components/titleBanner";
 import AddTodo from "./components/addTodo";
 import TodoList from "./components/todoList";
 import SearchBar from "./components/searchBar";
+import BackButton from "./components/backButton";
 
 function App() {
   // Stores the array of todo objects 
@@ -62,6 +63,8 @@ function App() {
         todos={search[0].todoTitle ? search : todos}   
         removeTodo={removeTodo}
       />
+      {/* Button must only show when search is truthy */}
+      <BackButton clearSearch={clearSearch} />
     </main>
     </>
   );
