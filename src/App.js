@@ -6,27 +6,24 @@ import SearchBar from "./components/searchBar";
 import BackButton from "./components/backButton";
 
 function App() {
-  // Stores the array of todo objects 
-  const [todos, setTodos] = useState([
+  const initialState = [
     {
       todoTitle: ''
     }
-  ]);
+  ];
+
+  // Stores the array of todo objects 
+  const [todos, setTodos] = useState(initialState);
 
   // Stores the searched object 
-  const [search, setSearch] = useState([
-    {
-      todoTitle: ''
-    }
-  ]);
+  const [search, setSearch] = useState(initialState);
+
+  const [notFound, setNotFound] = useState(false);
 
   // Clears the seach state object when remove button is pressed
   const clearSearch = () => {
-    setSearch([
-      {
-        todoTitle: ''
-      }
-    ])
+    setSearch(initialState)
+    setNotFound(false);
   };
 
   // Removes todo when delete button is pressed
@@ -34,16 +31,20 @@ function App() {
     setTodos(todos.filter(todo => todo.todoTitle !== name));
 
     // Checks if search state is truthy then clears search state
-    search[0].todoTitle && clearSearch()
+    search[0].todoTitle && clearSearch();
   };
 
   // Search todo handler
   const onSearch = (searchTerm) => {
     const result = searchTerm.toLowerCase();
 
-    setSearch(todos.filter(todo => todo.todoTitle.toLowerCase() === result))
+    const foundSearch = todos.find(todo => todo.todoTitle.toLowerCase() === result);
 
-    console.log(search);
+    if (foundSearch) {
+      setSearch(todos.filter(todo => todo.todoTitle.toLowerCase() === result));
+    } else {
+      setNotFound(true);
+    }
   };
 
   return (
@@ -63,8 +64,13 @@ function App() {
         todos={search[0].todoTitle ? search : todos}   
         removeTodo={removeTodo}
       />
-      {/* Button must only show when search is truthy */}
-      <BackButton clearSearch={clearSearch} />
+      {search[0].todoTitle && <BackButton clearSearch={clearSearch} />}
+      {notFound && 
+      <div>
+        <p>here</p>
+        <BackButton clearSearch={clearSearch} />
+      </div>
+      }
     </main>
     </>
   );
