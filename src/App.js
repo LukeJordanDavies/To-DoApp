@@ -2,15 +2,21 @@ import React, { useState } from "react";
 import TitleBanner from "./components/titleBanner";
 import AddTodo from "./components/addTodo";
 import TodoList from "./components/todoList";
-import SearchBar from "./components/searchBar";
+
 import BackButton from "./components/backButton";
 
 function App() {
   const initialState = [
     {
-      todoTitle: ''
+      '': []
     }
   ];
+
+  const [categories, setCategories] = useState([
+    {
+      category: "hello",
+    }
+  ]);
 
   // Stores the array of todo objects 
   const [todos, setTodos] = useState(initialState);
@@ -50,16 +56,15 @@ function App() {
   return (
     <>
     <header>
-      <SearchBar onSearch={onSearch}/>
-      <TitleBanner />
-      <AddTodo 
-        todos={todos} 
-        setTodos={setTodos}
-      />
+      <TitleBanner onSearch={onSearch} categories={categories}/>
       <hr/>
     </header>
 
     <main>
+    <AddTodo 
+        todos={todos} 
+        setTodos={setTodos}
+      />
       <TodoList 
         todos={search[0].todoTitle ? search : todos}   
         removeTodo={removeTodo}
@@ -67,6 +72,7 @@ function App() {
       {search[0].todoTitle && <BackButton clearSearch={clearSearch} />}
       {notFound && 
       <div>
+        {/* change to search not found or summin */}
         <p>here</p>
         <BackButton clearSearch={clearSearch} />
       </div>

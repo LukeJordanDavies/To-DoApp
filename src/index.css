@@ -6,20 +6,93 @@
   font-size: 16px;
 }
 
-.title {
-  text-align: center;
-  font-size: 3rem;
-}
-
-.searchbar-container {
+.banner {
   display: inline-flex;
+  justify-content: space-between;
   width: 100%;
-  justify-content: end;
+  height: 50px;
+  padding-bottom: 25px;
 }
 
-/* .searchbar {
+.popout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.popout-button:hover {
+  background-color: lightgray;
+}
+
+.popout-icon {
+  font-size: 24px;
+}
+
+.popout-window {
+  position: fixed;
+  height: 80%;
+  width: 250px;
+  margin-top: 85px;
+  background-color: lightgrey;
+}
+
+.category-button {
+  text-align: center;
+  width: 100%;
+  height: 50px;
+  font-size: 25px;
+}
+
+.category-form {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+}
+
+/* create category-input */
+
+.title {
   
+  position: fixed;
+  height: 50px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  font-size: 18px;
+}
+
+.search-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  width: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.search-icon {
+  font-size: 18px;
+}
+
+/* .searchbar-container {
+  position: fixed;
 } */
+
+.searchbar {
+  margin-top: 10px; 
+}
 
 .back-button {
   width: 100%;

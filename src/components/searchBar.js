@@ -1,24 +1,32 @@
 import React, { useState } from 'react'
+import { IoIosSearch } from "react-icons/io";
 
-const SearchBar = ({ onSearch }) => {
+const SearchBar = ({ onSearch, isVisible, setIsVisible, toggleSearchBar }) => {
   const [searchTerm, setSearchTerm] = useState('');
   
   const handleSearch = (e) => {
     e.preventDefault();
 
     onSearch(searchTerm);
+    setIsVisible(false);
   } 
-
+  
   return (
-    <form className='searchbar-container' onSubmit={handleSearch}> 
-        <input
-          className='searchbar' 
-          type='text'
-          name='search'
-          placeholder='Search'
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-    </form>
+    <>
+       { !isVisible ? <button className='search-button' onClick={toggleSearchBar}>
+        <IoIosSearch className='search-icon'/>
+      </button>
+      :
+      <form className='searchbar-container' onSubmit={handleSearch}> 
+          <input
+            className='searchbar' 
+            type='text'
+            name='search'
+            placeholder='Search'
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+      </form>}
+    </>
   )
 }
 
