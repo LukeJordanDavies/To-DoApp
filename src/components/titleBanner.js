@@ -3,7 +3,7 @@ import SearchBar from './searchBar'
 import { IoIosMenu } from "react-icons/io";
 import PopoutWindow from './popoutWindow';
 
-const TitleBanner = ({ onSearch, categories }) => {
+const TitleBanner = ({ onSearch, categories, setCategories, setSelected, todos, setTodos }) => {
   const [searchBarVisible, setSearchBarVisible] = useState(false);
   const [popoutWindowVisible, setPopoutWindowVisible] = useState(false);
 
@@ -28,7 +28,14 @@ const TitleBanner = ({ onSearch, categories }) => {
       </button>
 
       {/* Popout window */}
-      {popoutWindowVisible && <PopoutWindow categories={categories} />}
+      {popoutWindowVisible && 
+        <PopoutWindow 
+          categories={categories} 
+          setCategories={setCategories}
+          todos={todos}
+          setTodos={setTodos}
+          setSelected={setSelected}
+        />}
 
       {/* Main title */}
       <h1 className='title' onClick={closeSearchBar}>My Todos</h1>

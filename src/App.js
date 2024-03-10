@@ -21,6 +21,9 @@ function App() {
   // Stores the array of todo objects 
   const [todos, setTodos] = useState(initialState);
 
+  // Stores the selected category
+  const [selected, setSelected] = useState('');
+
   // Stores the searched object 
   const [search, setSearch] = useState(initialState);
 
@@ -56,7 +59,14 @@ function App() {
   return (
     <>
     <header>
-      <TitleBanner onSearch={onSearch} categories={categories}/>
+      <TitleBanner 
+        onSearch={onSearch} 
+        todos={todos}
+        setTodos={setTodos}
+        categories={categories}
+        setCategories={setCategories}
+        setSelected={setSelected}
+      />
       <hr/>
     </header>
 
@@ -64,6 +74,7 @@ function App() {
     <AddTodo 
         todos={todos} 
         setTodos={setTodos}
+        categories={categories}
       />
       <TodoList 
         todos={search[0].todoTitle ? search : todos}   

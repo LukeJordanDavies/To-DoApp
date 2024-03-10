@@ -1,12 +1,26 @@
 import React, { useState } from 'react'
 
-const CategoriesForm = () => {
+const CategoriesForm = ({ categories, setCategories, todos, setTodos }) => {
   const [categoryName, setCategoryName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // set Category in App.js
+    setCategories([
+      ...categories,
+      {
+        category: categoryName
+      }
+    ]);
+
+    setTodos([
+      ...todos,
+      {
+        [categoryName]: []
+      }
+    ]);
+
+    console.log(todos)
   };
 
   return (
