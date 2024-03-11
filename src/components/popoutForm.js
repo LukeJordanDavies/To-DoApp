@@ -1,18 +1,23 @@
 import React, { useState } from 'react'
 
-const PopoutForm = ({ onClose, todos, setTodos, categories }) => {
+const PopoutForm = ({ onClose, todos, setTodos, categories, selected }) => {
   const [title, setTitle] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // replace todoTitle with selected category 
-    setTodos([
-      ...todos,
-      {
-        todoTitle: title
-      }
-    ]);
+    
+    todos.map(todo => {
+      const catName = Object.keys(todo)[0];
+
+      if (catName === selected) { 
+        setTodos([
+          ...todos,
+          {
+            [catName]: [title]
+          }
+        ]);
+    }
+})
 
     onClose();
   };
@@ -21,20 +26,6 @@ const PopoutForm = ({ onClose, todos, setTodos, categories }) => {
   return (
       <div className='form-section'>
         <form onSubmit={handleSubmit}>
-          {/* Dropdown menu for selecting category */}
-          <select name='categories' onChange={(e) => setSelectedCategory(e.target.value)}>
-            <option value=''>Select...</option>
-            {categories.map(({category}, index) => 
-              category && 
-                <option 
-                  key={index} 
-                  value={category}
-                >
-                  {category}
-                </option>
-              )}
-          </select>
-
           {/* Text input for add a todo */}
           <input 
             type='text'

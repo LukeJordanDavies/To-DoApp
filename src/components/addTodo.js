@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PopoutForm from './popoutForm';
 
-const AddTodo = ({ todos, setTodos, categories }) => {
+const AddTodo = ({ todos, setTodos, categories, selected }) => {
   const [popoutVisible, setPopoutVisible] = useState(false);
 
   const togglePopout = () => {
@@ -17,6 +17,7 @@ const AddTodo = ({ todos, setTodos, categories }) => {
           todos={todos} 
           setTodos={setTodos}
           categories={categories}
+          selected={selected}
         />}
     </>
   )

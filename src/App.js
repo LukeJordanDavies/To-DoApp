@@ -14,7 +14,7 @@ function App() {
 
   const [categories, setCategories] = useState([
     {
-      category: "hello",
+      category: '',
     }
   ]);
 
@@ -65,6 +65,7 @@ function App() {
         setTodos={setTodos}
         categories={categories}
         setCategories={setCategories}
+        selected={selected}
         setSelected={setSelected}
       />
       <hr/>
@@ -75,10 +76,12 @@ function App() {
         todos={todos} 
         setTodos={setTodos}
         categories={categories}
+        selected={selected}
       />
       <TodoList 
         todos={search[0].todoTitle ? search : todos}   
         removeTodo={removeTodo}
+        selected={selected}
       />
       {search[0].todoTitle && <BackButton clearSearch={clearSearch} />}
       {notFound && 

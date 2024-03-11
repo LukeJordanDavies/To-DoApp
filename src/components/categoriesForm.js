@@ -19,8 +19,6 @@ const CategoriesForm = ({ categories, setCategories, todos, setTodos }) => {
         [categoryName]: []
       }
     ]);
-
-    console.log(todos)
   };
 
   return (

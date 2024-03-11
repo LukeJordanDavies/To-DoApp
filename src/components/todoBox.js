@@ -2,19 +2,20 @@ import React, { useState } from 'react'
 import { RiCheckboxBlankCircleLine, RiCheckboxCircleLine } from "react-icons/ri";
 import { TiDeleteOutline, TiDelete } from "react-icons/ti";
 
-const TodoBox = ({ todoTitle, removeTodo }) => {
+const TodoBox = ({ todo, removeTodo }) => {
   // Stores the state for the checkmark
   const [isCompleted, setIsCompleted] = useState(false);
+  const todoCategory = Object.keys(todo);
 
   const handleToggle = () => {
     setIsCompleted(!isCompleted);
   };
 
   const handleRemove = () => {
-    removeTodo(todoTitle);
+    removeTodo(todoCategory);
   };
 
-  if (todoTitle) {
+  if (todo[todoCategory][0]) {
 
     return (
       <div className='todo-body'>
@@ -27,7 +28,7 @@ const TodoBox = ({ todoTitle, removeTodo }) => {
           </button>
         </div>
         <div>
-          <p className='text'>{todoTitle}</p>
+          <p className='text'>{todo[todoCategory]}</p>
         </div>
         <div className='delete-button-container'>
           <button className='delete-button' onClick={handleRemove}>
