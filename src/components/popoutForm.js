@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
 
-const PopoutForm = ({ onClose, todos, setTodos, categories, selected }) => {
+const PopoutForm = ({ onClose, todos, setTodos, selected }) => {
   const [title, setTitle] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    todos.map(todo => {
-      const catName = Object.keys(todo)[0];
-
-      if (catName === selected) { 
-        setTodos([
-          ...todos,
-          {
-            [catName]: [title]
-          }
-        ]);
-    }
-})
+    setTodos([
+      ...todos,
+      {
+        [selected]: title
+      }
+    ])
 
     onClose();
   };

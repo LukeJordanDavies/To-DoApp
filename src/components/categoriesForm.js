@@ -12,13 +12,6 @@ const CategoriesForm = ({ categories, setCategories, todos, setTodos }) => {
         category: categoryName
       }
     ]);
-
-    setTodos([
-      ...todos,
-      {
-        [categoryName]: []
-      }
-    ]);
   };
 
   return (

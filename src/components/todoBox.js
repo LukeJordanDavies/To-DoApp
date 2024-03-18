@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { RiCheckboxBlankCircleLine, RiCheckboxCircleLine } from "react-icons/ri";
 import { TiDeleteOutline, TiDelete } from "react-icons/ti";
 
-const TodoBox = ({ todo, removeTodo }) => {
+const TodoBox = ({ todo, removeTodo, selected }) => {
   // Stores the state for the checkmark
   const [isCompleted, setIsCompleted] = useState(false);
   const todoCategory = Object.keys(todo);
@@ -12,10 +12,13 @@ const TodoBox = ({ todo, removeTodo }) => {
   };
 
   const handleRemove = () => {
-    removeTodo(todoCategory);
+    const categoryName = todoCategory[0];
+    const todoName = todo[todoCategory];
+
+    removeTodo(categoryName, todoName);
   };
 
-  if (todo[todoCategory][0]) {
+  if (todo[todoCategory]) {
 
     return (
       <div className='todo-body'>

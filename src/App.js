@@ -8,7 +8,7 @@ import BackButton from "./components/backButton";
 function App() {
   const initialState = [
     {
-      '': []
+      '': ''
     }
   ];
 
@@ -36,17 +36,17 @@ function App() {
   };
 
   // Removes todo when delete button is pressed
-  const removeTodo = (name) => {
-    setTodos(todos.filter(todo => todo.todoTitle !== name));
+  const removeTodo = (categoryName, todoName) => {  
+    setTodos(todos.filter(todo => todo[categoryName] !== todoName));
 
     // Checks if search state is truthy then clears search state
-    search[0].todoTitle && clearSearch();
+    // search[0].todoTitle && clearSearch();
   };
 
   // Search todo handler
   const onSearch = (searchTerm) => {
     const result = searchTerm.toLowerCase();
-
+    // try todo[selected]
     const foundSearch = todos.find(todo => todo.todoTitle.toLowerCase() === result);
 
     if (foundSearch) {
@@ -83,7 +83,7 @@ function App() {
         removeTodo={removeTodo}
         selected={selected}
       />
-      {search[0].todoTitle && <BackButton clearSearch={clearSearch} />}
+      {search[0][selected] && <BackButton clearSearch={clearSearch} />}
       {notFound && 
       <div>
         {/* change to search not found or summin */}
