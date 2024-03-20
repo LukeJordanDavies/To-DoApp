@@ -27,6 +27,8 @@ function App() {
   // Stores the searched object 
   const [search, setSearch] = useState(initialState);
 
+  const [searchKey, setSearchKey] = useState('');
+
   const [notFound, setNotFound] = useState(false);
 
   // Clears the seach state object when remove button is pressed
@@ -40,17 +42,24 @@ function App() {
     setTodos(todos.filter(todo => todo[categoryName] !== todoName));
 
     // Checks if search state is truthy then clears search state
-    // search[0].todoTitle && clearSearch();
+    search[0][categoryName] && clearSearch();
   };
 
   // Search todo handler
   const onSearch = (searchTerm) => {
     const result = searchTerm.toLowerCase();
-    // try todo[selected]
-    const foundSearch = todos.find(todo => todo.todoTitle.toLowerCase() === result);
-
-    if (foundSearch) {
-      setSearch(todos.filter(todo => todo.todoTitle.toLowerCase() === result));
+    
+    const foundTodo = todos.find(todo => {
+      const key = Object.keys(todo);
+      setSearchKey(key[0]);
+        
+      return (
+        todo[key].toLowerCase() === result 
+      )
+    });
+    
+    if (foundTodo) {
+      setSearch([foundTodo])
     } else {
       setNotFound(true);
     }
@@ -79,11 +88,11 @@ function App() {
         selected={selected}
       />
       <TodoList 
-        todos={search[0].todoTitle ? search : todos}   
+        todos={search[0][searchKey] ? search : todos}   
         removeTodo={removeTodo}
         selected={selected}
       />
-      {search[0][selected] && <BackButton clearSearch={clearSearch} />}
+      {search[0][searchKey] && <BackButton clearSearch={clearSearch} />}
       {notFound && 
       <div>
         {/* change to search not found or summin */}

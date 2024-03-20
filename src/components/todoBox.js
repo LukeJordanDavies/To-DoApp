@@ -9,6 +9,12 @@ const TodoBox = ({ todo, removeTodo, selected }) => {
 
   const handleToggle = () => {
     setIsCompleted(!isCompleted);
+
+    // if (isCompleted) {
+    //   setCount(prev => prev + 1);
+    // } else {
+    //   setCount(prev => prev - 1);
+    // }
   };
 
   const handleRemove = () => {
