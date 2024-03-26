@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import TitleBanner from "./components/titleBanner";
 import AddTodo from "./components/addTodo";
 import TodoList from "./components/todoList";
-
 import BackButton from "./components/backButton";
 
 function App() {
@@ -81,12 +80,12 @@ function App() {
     </header>
 
     <main>
-    <AddTodo 
+    {selected ? <AddTodo 
         todos={todos} 
         setTodos={setTodos}
         categories={categories}
         selected={selected}
-      />
+      /> : <p>Press icon to add Category</p>}
       <TodoList 
         todos={search[0][searchKey] ? search : todos}   
         removeTodo={removeTodo}

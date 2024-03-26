@@ -37,13 +37,19 @@ const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos,
         {/* Categories List */}
         {categories.map(({ category }, index) => 
           category && 
+          <div className='category-container' key={index}>
             <button 
-              key={index} 
               className='category-button'
               onClick={() => handleSlected(category)}
           >
             {category}
           </button>
+          <button 
+            className='category-remove-btn'
+          >
+            R
+          </button>
+        </div>
         )}
     </div>
   )
