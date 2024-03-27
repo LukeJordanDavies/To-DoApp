@@ -13,6 +13,11 @@ const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos,
     togglePopoutWindow();
   }
 
+  const removeCategory = (categoryName) => {
+    setCategories(categories.filter(category => category.category !== categoryName));
+    setTodos(todos.filter(todo => Object.keys(todo)[0] !== categoryName));
+  }
+
   return (
     <div className='popout-window'>
         {/* Add Category Button */}
@@ -46,6 +51,7 @@ const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos,
           </button>
           <button 
             className='category-remove-btn'
+            onClick={() => removeCategory(category)}
           >
             R
           </button>
