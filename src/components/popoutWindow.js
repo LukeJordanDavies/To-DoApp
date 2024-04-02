@@ -2,11 +2,6 @@ import React, { useState } from 'react'
 import CategoriesForm from './categoriesForm';
 
 const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos, togglePopoutWindow }) => {
-  const [isCatFormVisible, setIsCatFormVisible] = useState(false);
-
-  const toggleCatForm = () => {
-    setIsCatFormVisible(!isCatFormVisible);
-  }
 
   const handleSlected = (category) => {
     setSelected(category);
@@ -20,23 +15,22 @@ const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos,
 
   return (
     <div className='popout-window'>
-        {/* Add Category Button */}
-        <button 
-          className='category-button' 
-          onClick={toggleCatForm}
-        >
-          Add Category
-        </button>
-
+      <div className='cat-form-container'>
         {/* Add Category Form */}
-        {isCatFormVisible && 
-          <CategoriesForm 
-            categories={categories}
-            setCategories={setCategories}
-            todos={todos}
-            setTodos={setTodos}
-          />}
-        
+        <CategoriesForm 
+          categories={categories}
+          setCategories={setCategories}
+          todos={todos}
+          setTodos={setTodos}
+        />
+
+        {/* Remove Category Button */}
+        <button 
+          className='add-category-button' 
+        >
+          Add
+        </button>
+      </div>
         <hr />
 
         {/* Categories List */}

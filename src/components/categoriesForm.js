@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const CategoriesForm = ({ categories, setCategories, todos, setTodos }) => {
+const CategoriesForm = ({ categories, setCategories }) => {
   const [categoryName, setCategoryName] = useState('');
 
   const handleSubmit = (e) => {
@@ -22,6 +22,7 @@ const CategoriesForm = ({ categories, setCategories, todos, setTodos }) => {
         placeholder='Add Category'
         onChange={(e) => setCategoryName(e.target.value)}
     />
+    {/* Add button */}
     </form>
   )
 }

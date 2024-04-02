@@ -3,6 +3,7 @@ import TitleBanner from "./components/titleBanner";
 import AddTodo from "./components/addTodo";
 import TodoList from "./components/todoList";
 import BackButton from "./components/backButton";
+import { IoIosMenu } from "react-icons/io";
 
 function App() {
   const initialState = [
@@ -85,7 +86,7 @@ function App() {
         setTodos={setTodos}
         categories={categories}
         selected={selected}
-      /> : <p>Press icon to add Category</p>}
+      /> : <p>Press { <IoIosMenu />} to add Category</p>}
       <TodoList 
         todos={search[0][searchKey] ? search : todos}   
         removeTodo={removeTodo}
