@@ -49,15 +49,24 @@
   flex-direction: column;
 }
 
-.add-category-button{
+.add-category-input{
   margin: 0 10%;
-  width: 80%;
+  margin-top: 10px;
+  
+}
+
+.add-category-button{
+  margin: 0 20%;
+  margin-top: 10px;
 }
 
 .category-container{
-  width: 100%;
-  height: 50px;
   display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .category-button {
@@ -72,19 +81,7 @@
   height: 50px;
 }
 
-.category-form {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-/* create category-input */
-
 .title {
-  
   position: fixed;
   height: 50px;
   width: 80%;
@@ -109,10 +106,6 @@
 .search-icon {
   font-size: 18px;
 }
-
-/* .searchbar-container {
-  position: fixed;
-} */
 
 .searchbar {
   margin-top: 10px; 

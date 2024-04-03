@@ -15,23 +15,14 @@ const PopoutWindow = ({ categories, setCategories, setSelected, todos, setTodos,
 
   return (
     <div className='popout-window'>
-      <div className='cat-form-container'>
-        {/* Add Category Form */}
-        <CategoriesForm 
-          categories={categories}
-          setCategories={setCategories}
-          todos={todos}
-          setTodos={setTodos}
-        />
-
-        {/* Remove Category Button */}
-        <button 
-          className='add-category-button' 
-        >
-          Add
-        </button>
-      </div>
-        <hr />
+      {/* Add Category Form */}
+      <CategoriesForm 
+        categories={categories}
+        setCategories={setCategories}
+        todos={todos}
+        setTodos={setTodos}
+      />
+      <hr />
 
         {/* Categories List */}
         {categories.map(({ category }, index) => 

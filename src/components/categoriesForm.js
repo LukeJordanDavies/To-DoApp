@@ -15,15 +15,24 @@ const CategoriesForm = ({ categories, setCategories }) => {
   };
 
   return (
-    <form className='category-form' onSubmit={handleSubmit}>
-      <input 
-        type='text'
-        name='category'
-        placeholder='Add Category'
-        onChange={(e) => setCategoryName(e.target.value)}
-    />
-    {/* Add button */}
-    </form>
+    <div >
+      <form className='cat-form-container'>
+        <input 
+          className='add-category-input'
+          type='text'
+          name='category'
+          placeholder='Add Category'
+          onChange={(e) => setCategoryName(e.target.value)}
+      />
+      {/* Add Category Button */}
+      <button 
+        className='add-category-button' 
+        onClick={handleSubmit}
+      >
+      Add
+      </button>
+      </form>
+    </div>
   )
 }
 
