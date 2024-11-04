@@ -35,12 +35,13 @@ const TitleBanner = ({ onSearch, categories, setCategories, selected, setSelecte
             setCategories={setCategories}
             todos={todos}
             setTodos={setTodos}
+            selected={selected}
             setSelected={setSelected}
             togglePopoutWindow={togglePopoutWindow}
           />}
 
         {/* Main title */}
-        <h1 className='title' onClick={closeSearchBar}>My Todos</h1>
+        <h1 className='title' onClick={closeSearchBar}>My Todos List</h1>
 
         {/* Search bar */}
         <SearchBar 
@@ -51,7 +52,7 @@ const TitleBanner = ({ onSearch, categories, setCategories, selected, setSelecte
         />  
       </div>
       <div>
-        <h2>{selected}</h2>
+        {selected && <h2>{selected}</h2>}
       </div>
     </>
   )

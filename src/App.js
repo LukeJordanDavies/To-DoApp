@@ -96,7 +96,7 @@ function App() {
       {notFound && 
       <div>
         {/* change to search not found or summin */}
-        <p>here</p>
+        <h3 className='search-error-message'>Oops... todo not found!</h3>
         <BackButton clearSearch={clearSearch} />
       </div>
       }

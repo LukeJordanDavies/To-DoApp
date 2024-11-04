@@ -22,7 +22,7 @@ const SearchBar = ({ onSearch, isVisible, setIsVisible, toggleSearchBar }) => {
             className='searchbar' 
             type='text'
             name='search'
-            placeholder='Search'
+            placeholder='Search todo...'
             onChange={(e) => setSearchTerm(e.target.value)}
           />
       </form>}
